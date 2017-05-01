@@ -1,7 +1,7 @@
 FROM centos
 LABEL maintainer "http://steamcommunity.com/id/gangrene"
 
-#initial patching and required software installation of software
+#initial patching and required installation of software
 RUN yum update -y && \
     yum install -y wget glibc.i686 libstdc++.i686 && \
     adduser -m steam
@@ -29,4 +29,4 @@ RUN ln -s $CSGO_DIR/addons/metamod.vdf metamod.vdf
 EXPOSE 27015
 
 ADD csgo.sh /
-CMD ["sleep", "inf"]
+CMD ["/csgo.sh"]
